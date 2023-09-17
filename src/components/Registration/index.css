@@ -1,0 +1,171 @@
+/*  
+ <img alt = "game-icon" className="game-icon"
+    src = "https://wallpapers.com/images/high/squid-game-red-light-green-light-background-1200-x-1321-hvn9jn9eoco5kibd.webp"
+ />
+
+.game-icon{
+    width: 450px;
+    height: 400px;
+}
+*/
+body{
+    margin: 0px;
+}
+
+*{
+  box-sizing: border-box;  
+}
+
+
+.registration-page{
+    background-image: url("https://images5.alphacoders.com/117/1177232.jpg") ;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-head{
+    font-size: 32px;
+    text-align: center;
+    color: darkturquoise;
+}
+
+.green-color{
+    color: #a8fb2b;
+}
+
+.red-color{
+    color: #ff1d1d;
+}
+
+
+
+.registration-form { 
+    border: 2px lightgray solid;
+    background-color: #ffffff;
+    width: 500px;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+
+.label-el{
+    font-size: 24px;
+    margin-right: 15px;
+    width: 122px;
+}
+
+.input-el{
+    width: 400px;
+    height: 35px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.radio-input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.radio-input{
+    display: flex;
+    flex-direction: row;  
+}
+
+.radio-label{
+    cursor: pointer;
+}
+
+.radio-el{
+    cursor: pointer;
+}
+
+.submit-button{
+    width: 150px;
+    height: 35px;
+    background-color: cadetblue;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 33%;
+
+}
+
+.error-el {
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
+@media (max-width:900px){
+    .registration-page{
+        background-image: url("https://wallpapers.com/images/high/squid-game-red-light-green-light-background-1200-x-1321-hvn9jn9eoco5kibd.webp");
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .game-head{
+        font-size: 24px;       
+    }
+
+    .registration-form {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .input-container{
+        flex-direction: column;
+        margin-left: 0px;
+    }
+
+    .label-el{
+        font-size: 17px;
+    }
+
+    .input-el{
+        width: 90%;
+    }
+
+    .radio-input-container{
+        width: 100%;
+    }
+
+    .submit-button{
+        margin-left: 50px;
+    }
+}
+
+
+
+
+
+
+
