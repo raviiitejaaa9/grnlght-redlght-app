@@ -122,7 +122,7 @@ body{
     color: red;
 }
 
-@media (max-width:900px){
+@media (max-width:850px){
     .registration-page{
         background-image: url("https://wallpapers.com/images/high/squid-game-red-light-green-light-background-1200-x-1321-hvn9jn9eoco5kibd.webp");
         background-size: cover;

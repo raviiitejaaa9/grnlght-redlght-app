@@ -1,0 +1,17 @@
+.not-found-container{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.not-found-head{
+    color: chocolate;
+}
+
+@media (max-width:850px){
+    .not-found-head{
+        font-size: 18px;
+    }
+}

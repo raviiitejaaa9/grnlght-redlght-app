@@ -1,13 +1,10 @@
-import { useState, useContext } from "react"
-
-import UserContext from "../../contexts/UserContext";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 import "./index.css"
-import userContext from "../../contexts/UserContext";
 
 const Registration = () => {
-
-    const {reqName, reqEmail, reqNumber, reqLevel, changeUserDetails} = useContext(userContext)
+    const navigate = useNavigate();
 
     const [name,setName] = useState("");
     const [email, setEmail] = useState("");
@@ -15,49 +12,40 @@ const Registration = () => {
     const [level, setLevel] = useState("easy");
     const [errorMsg, setErrorMsg] = useState("");
 
-    /* Submit Event  */
-    const submitForm = (event) => {
+    /* submitForm  as async function because we have async operations */
+    const submitForm =  async(event) => {
         event.preventDefault()
-
+    
         if (name === ""){
             setErrorMsg("*Please Enter your Gaming Name")
         } 
         else if (email === "") {
-            setErrorMsg("*Please Enter your mail Address")
+            setErrorMsg("*Please Enter your e-mail Address")
         }
-        else if (email !== "") {
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (emailPattern.test(email)) {
-                setErrorMsg("");
-            } else {
-                setErrorMsg("Please enter a valid Email");
-            }
-        }
-        else if (number === "") {
-            setErrorMsg("*Please Enter your Number")
+        else if (number === "" || (number !== (parseInt(number)).toString()) ) {
+            setErrorMsg("*Please Enter your proper Number")
         } 
-        else if (!NaN(number)){
-            setErrorMsg("*Number should consist of digits only")
-        }
         else {
-            changeUserDetails({
-                reqName : name,
-                reqEmail : email,
-                reqNumber : number,
-                reqLevel : level,
-            })
-            
+
+            /* creating an object based on user data */
             const playerData = {
                 name,
                 email,
                 number,
                 level
             }
+
+            /* setting if user is authenticated to play the game or not */
+            await localStorage.setItem("authentication","true");
+
+            /* converting the data into json object and to be stored in the local storage */
             const stringifiedData = JSON.stringify(playerData);
-            const savedDetails = localStorage.setItem("playerDetails",stringifiedData);
-            console.log(localStorage.getItem("playerDetails"))
+            await localStorage.setItem("playerDetails",stringifiedData);
+           
+            navigate("/game", { replace: true });
+            console.log("form submitted")
+           
         }
-        
         
     }
 
@@ -119,7 +107,6 @@ const Registration = () => {
     const onNumberChange = (event) => {
         const enteredNumber = event.target.value;
         setNumber(enteredNumber);
-
     }
 
     const onLevelChange = (event) => {
@@ -127,11 +114,9 @@ const Registration = () => {
         setLevel(selectedLevel);
     }
 
-
-    
-    // returning an form element 
-    return(
-        <div className="registration-page" >
+    const registrationComponent = () => {
+        return (
+            <div className="registration-page" >
             <h1 className="game-head" > <span className="green-color" >GreenLight</span> <span className="red-color" > RedLight </span> Game  </h1>
             <form onSubmit = {submitForm} className="registration-form" >
                 <div className="input-container"  >
@@ -180,7 +165,13 @@ const Registration = () => {
                 </button>
             </form>
         </div>
+        )
+    }
+
+    return(
+        registrationComponent()
     )
+
 
 }
 
