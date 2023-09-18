@@ -10,7 +10,7 @@ import './App.css';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/GreenLight-RedLight">
       <Routes>
         <Route path="/" element={<Registration />} />
         <Route path="/game" element={<ProtectedRoute element={<GreenLightRedLight />} />} />  
