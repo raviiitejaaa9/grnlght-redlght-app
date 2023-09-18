@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter , Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Registration from './components/Registration'; 
 import GreenLightRedLight from './components/GreenLightRedLight';
@@ -10,13 +10,13 @@ import './App.css';
 function App() {
 
   return (
-    <HashRouter basename="/GreenLight-RedLight">
+    <BrowserRouter basename="/GreenLight-RedLight">
       <Routes>
         <Route path="/" element={<Registration />} />
         <Route path="/game" element={<ProtectedRoute element={<GreenLightRedLight />} />} />  
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
