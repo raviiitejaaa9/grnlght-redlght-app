@@ -14,6 +14,7 @@ body{
 
 *{
   box-sizing: border-box;  
+font-family: "cursive";  
 }
 
 
@@ -104,7 +105,7 @@ body{
 .submit-button{
     width: 150px;
     height: 35px;
-    background-color: cadetblue;
+    background-color: #04494b;
     color: #ffffff;
     outline: none;
     border: none;

@@ -43,7 +43,7 @@ const Registration = () => {
             await localStorage.setItem("playerDetails",stringifiedData);
            
             navigate("/game", { replace: true });
-            console.log("form submitted")
+            // console.log("form submitted")
            
         }
         
@@ -117,7 +117,7 @@ const Registration = () => {
     const registrationComponent = () => {
         return (
             <div className="registration-page" >
-            <h1 className="game-head" > <span className="green-color" >GreenLight</span> <span className="red-color" > RedLight </span> Game  </h1>
+            <h1 className="game-head" > <span className="green-color" > GreenLight </span> <span className="red-color" >  RedLight </span>  Game  </h1>
             <form onSubmit = {submitForm} className="registration-form" >
                 <div className="input-container"  >
                     <label className="label-el"  htmlFor="name" > Name </label>

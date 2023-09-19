@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ element }) => {
   const isAuthenticated = localStorage.getItem("authentication")
   const isUserAuthenticated = isAuthenticated === "true"
-  console.log(isUserAuthenticated);
+  // console.log(isUserAuthenticated);
   return isUserAuthenticated ? element : <Navigate to="/" replace  />;
 };
 

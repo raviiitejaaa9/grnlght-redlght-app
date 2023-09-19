@@ -129,11 +129,11 @@ function GreenLightRedLight () {
           clearInterval(randomColorId.current);
         }
       }, [gameState]);
-      
+
       
     /* for increasing score  */  
     const onClickColor = () => {
-        console.log("click triggered")
+        // console.log("click triggered")
         if (color === "green"){
             setScore(score + 1)
             if (score + 1 === winScore) {
