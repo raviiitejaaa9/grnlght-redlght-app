@@ -1,5 +1,5 @@
 {
-  "homepage": "https://raviiitejaaa9.github.io/GreenLight-RedLight",
+  "homepage": "https://raviiitejaaa9.github.io/GreenLightRedLight",
   "name": "green_light_red_light",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start --open https://raviiitejaaa9.github.io/GreenLight-RedLight",
+    "start": "react-scripts start --open https://raviiitejaaa9.github.io/GreenLightRedLight",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

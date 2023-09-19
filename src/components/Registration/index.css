@@ -18,7 +18,7 @@ body{
 
 
 .registration-page{
-    background-image: url("https://asset.cloudinary.com/dyukfze9f/eb002d3e51013f4aae8b78b8a9d1b2ab") ;
+    background-image: url("https://res.cloudinary.com/dyukfze9f/image/upload/v1695059136/1177232_sysxrt.jpg") ;
     height: 100vh;
     background-size: cover;
     display: flex;
@@ -124,7 +124,7 @@ body{
 
 @media (max-width:850px){
     .registration-page{
-        background-image: url("https://asset.cloudinary.com/dyukfze9f/3cca7a23e958555aa52478d66e0d292d");
+        background-image: url("https://res.cloudinary.com/dyukfze9f/image/upload/v1695058943/squid-game-red-light-green-light-background_wwb5n6.jpg");
         background-size: cover;
         height: 100vh;
     }
