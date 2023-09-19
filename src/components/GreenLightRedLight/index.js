@@ -130,6 +130,7 @@ function GreenLightRedLight () {
         }
       }, [gameState]);
       
+      
     /* for increasing score  */  
     const onClickColor = () => {
         console.log("click triggered")
@@ -150,24 +151,29 @@ function GreenLightRedLight () {
 
     /* what happens on clicking restart or play again buttons */ 
     const onClickRestart = () => {
-        // Clear any existing time interval for the game timer
+        // Clear any existing time interval for the game timer and random color timr
         clearInterval(gameTimerId.current);
-      
+        clearInterval(randomColorId.current);
+
         // Reset the game state in React state
         setScore(0);
         setGameTimer(40);
         setColor(getRandomColor());
         setGameState(apiConstants.playing);
       
-        // Start a new interval for the game timer
+        // Start a new interval for the game timer and random color timer
         gameTimerId.current = setInterval(() => {
           timerDecrement();
         }, 1000);
+        
+        randomColorId.current = setInterval(() => {
+            setColor(getRandomColor());
+          }, colorChangeTime);
       
+
         // Remove the saved game state from localStorage
         localStorage.removeItem("gameState");
       };
-      
       
 
     /* game components to be displayed based on game state   */
