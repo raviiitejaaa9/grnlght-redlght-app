@@ -111,9 +111,23 @@ function GreenLightRedLight () {
 
     }
 
-    const onClickRestart = () => {
-        window.location.reload()
-    }
+
+    /* function to reset the game state
+    const resetGameState = () => {
+        setScore(0);
+        setGameTimer(40);
+        setColor(getRandomColor());
+        timerDecrement()
+        setGameState(apiConstants.playing);
+    }; */
+
+    /* restarting the game state */
+    const onClickRestart = (event) => {
+        event.preventDefault();
+        window.location.reload();
+      };
+      
+      
 
     /* game components to be displayed based on game state   */
 
