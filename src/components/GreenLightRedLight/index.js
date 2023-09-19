@@ -41,10 +41,6 @@ function GreenLightRedLight () {
     const [gameTimer, setGameTimer] = useState(40)
     const [color, setColor] = useState(getRandomColor())
     const [gameState , setGameState] = useState(apiConstants.playing)
-    
-    /* using useRef for setInterval timer id's which can sustain a re-render*/
-    const gameTimerId = useRef(null)
-    const randomColorId = useRef(null)
 
     function getRandomColor () {
         const randomNum = Math.ceil(Math.random() * 10);
@@ -52,6 +48,47 @@ function GreenLightRedLight () {
         // console.log(randomColor)
         return randomColor
     }
+
+     /* Initialize game state and store it in localStorage */
+    useEffect(() => {
+        // Define the initial game state
+        const initialGameState = {
+        score: 0,
+        gameTimer: 40,
+        color: getRandomColor(),
+        gameState: apiConstants.playing,
+        };
+
+        // Store the initial game state in localStorage
+        localStorage.setItem("gameState", JSON.stringify(initialGameState));
+
+        // Set the game state in React state
+        setScore(initialGameState.score);
+        setGameTimer(initialGameState.gameTimer);
+        setColor(initialGameState.color);
+        setGameState(initialGameState.gameState);
+    }, []); // Empty dependency array means this effect runs once on component mount
+
+    /* Load the game state from localStorage when the component mounts */
+    useEffect(() => {
+        const savedGameState = localStorage.getItem("gameState");
+
+        if (savedGameState) {
+        const initialState = JSON.parse(savedGameState);
+        setScore(initialState.score);
+        setGameTimer(initialState.gameTimer);
+        setColor(initialState.color);
+        setGameState(initialState.gameState);
+        }
+    }, []); // Empty dependency array means this effect runs once on component mount
+
+
+
+    
+    /* using useRef for setInterval timer id's which can sustain a re-render*/
+    const gameTimerId = useRef(null)
+    const randomColorId = useRef(null)
+
 
     function timerDecrement() {
         setGameTimer((prevTime) => {
@@ -111,20 +148,24 @@ function GreenLightRedLight () {
 
     }
 
-
-    /* function to reset the game state
-    const resetGameState = () => {
+    /* what happens on clicking restart or play again buttons */ 
+    const onClickRestart = () => {
+        // Clear any existing time interval for the game timer
+        clearInterval(gameTimerId.current);
+      
+        // Reset the game state in React state
         setScore(0);
         setGameTimer(40);
         setColor(getRandomColor());
-        timerDecrement()
         setGameState(apiConstants.playing);
-    }; */
-
-    /* restarting the game state */
-    const onClickRestart = (event) => {
-        event.preventDefault();
-        window.location.reload();
+      
+        // Start a new interval for the game timer
+        gameTimerId.current = setInterval(() => {
+          timerDecrement();
+        }, 1000);
+      
+        // Remove the saved game state from localStorage
+        localStorage.removeItem("gameState");
       };
       
       
