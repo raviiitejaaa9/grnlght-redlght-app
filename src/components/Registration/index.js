@@ -17,7 +17,7 @@ const Registration = () => {
         event.preventDefault()
     
         if (name === ""){
-            setErrorMsg("*Please Enter your Gaming Name")
+            setErrorMsg("*Please Enter your Name")
         } 
         else if (email === "") {
             setErrorMsg("*Please Enter your e-mail Address")
@@ -56,7 +56,7 @@ const Registration = () => {
         // console.log("name blur triggered")
         // console.log(enteredName === "")
         if (enteredName === "") {
-            setErrorMsg("*Please Enter your Gaming Name");
+            setErrorMsg("*Please Enter your Name");
         }
         else{
             setErrorMsg("");
@@ -117,11 +117,11 @@ const Registration = () => {
     const registrationComponent = () => {
         return (
             <div className="registration-page" >
-            <h1 className="game-head" > <span className="green-color" > GreenLight </span> <span className="red-color" >  RedLight </span>  Game  </h1>
+            <h1 className="game-head" > <span className="green-color" > GreenLight </span> <span className="red-color" >  RedLight </span>  App  </h1>
             <form onSubmit = {submitForm} className="registration-form" >
                 <div className="input-container"  >
                     <label className="label-el"  htmlFor="name" > Name </label>
-                    <input required onChange = {onNameChange} onBlur={onNameBlur} className="input-el"  type = "input" placeholder="Enter your Gaming Name" id = "name"/>    
+                    <input required onChange = {onNameChange} onBlur={onNameBlur} className="input-el"  type = "input" placeholder="Enter your Name" id = "name"/>    
                 </div>
 
                 <div className="input-container"  >
@@ -161,12 +161,13 @@ const Registration = () => {
                 </div>
                 <p className="error-el" > {errorMsg} </p>
                 <button className="submit-button" type = "submit" >
-                    Start Game 
+                    Start 
                 </button>
             </form>
         </div>
         )
     }
+    
 
     return(
         registrationComponent()

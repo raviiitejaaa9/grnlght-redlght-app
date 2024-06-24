@@ -21,8 +21,10 @@ function GreenLightRedLight () {
     const { name, email, number, level } = playerData;
     const reqName = name.charAt(0).toUpperCase() + name.slice(1);
     const reqLevel = level.charAt(0).toUpperCase()+level.slice(1);
+
     let winScore = null;
     let colorChangeTime = null;
+
     if (level === "easy") {
         winScore = 10;
         colorChangeTime = 1500;
@@ -53,11 +55,11 @@ function GreenLightRedLight () {
     useEffect(() => {
         // Define the initial game state
         const initialGameState = {
-        score: 0,
-        gameTimer: 40,
-        color: getRandomColor(),
-        gameState: apiConstants.playing,
-        };
+            score: 0,
+            gameTimer: 40,
+            color: getRandomColor(),
+            gameState: apiConstants.playing,
+            };
 
         // Store the initial game state in localStorage
         localStorage.setItem("gameState", JSON.stringify(initialGameState));
@@ -69,16 +71,17 @@ function GreenLightRedLight () {
         setGameState(initialGameState.gameState);
     }, []); // Empty dependency array means this effect runs once on component mount
 
+
     /* Load the game state from localStorage when the component mounts */
     useEffect(() => {
         const savedGameState = localStorage.getItem("gameState");
 
         if (savedGameState) {
-        const initialState = JSON.parse(savedGameState);
-        setScore(initialState.score);
-        setGameTimer(initialState.gameTimer);
-        setColor(initialState.color);
-        setGameState(initialState.gameState);
+            const initialState = JSON.parse(savedGameState);
+            setScore(initialState.score);
+            setGameTimer(initialState.gameTimer);
+            setColor(initialState.color);
+            setGameState(initialState.gameState);
         }
     }, []); // Empty dependency array means this effect runs once on component mount
 
@@ -123,7 +126,7 @@ function GreenLightRedLight () {
         };
       }, [colorChangeTime]);
 
-
+      
       useEffect(() => {
         if (gameState === apiConstants.gameWon || gameState === apiConstants.gameOver) {
           clearInterval(randomColorId.current);
